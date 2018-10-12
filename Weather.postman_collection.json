@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "d004953f-8185-4ca1-b086-f372743788a9",
+		"name": "Weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "teste1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ffc08fd4-c561-44f5-89aa-01671c1a626e",
+						"exec": [
+							"var cityIds = [\r",
+							"    5206379, // Pittsburgh\r",
+							"    4440906, // Philadelphia\r",
+							"    4505716, // Baltimore\r",
+							"    4160812, // Key West\r",
+							"    3882428, // Lost Angeles\r",
+							"    5128638, // New York\r",
+							"    5809844, // Seattle\r",
+							"    1723862, // Boston\r",
+							"    4887398, // Chicago\r",
+							"    5506956, // Last Vegas\r",
+							"];\r",
+							"// Get a random number between 0-9\r",
+							"var randomCityId = Math.floor((Math.random() * 9) + 1);\r",
+							"\r",
+							"// Set an environment variable to the value of the random city id from array\r",
+							"postman.setEnvironmentVariable(\"CITYID\", cityIds[randomCityId])"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bad61e95-d700-4b6e-8df0-7781e27455fc",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"//Saving the response \"name\" value into an environment variable\r",
+							"postman.setEnvironmentVariable(\"CITYNAME\", jsonData.name);\r",
+							"\r",
+							"pm.test(\"City Name matches Request'\", function () {\r",
+							"    var contains = false;\r",
+							"    var cityFromResponse = postman.getEnvironmentVariable(\"CITYNAME\");\r",
+							"    console.log(cityFromResponse);\r",
+							"    \r",
+							"    if(jsonData.name == cityFromResponse) {\r",
+							"        contains = true;\r",
+							"    }\r",
+							"    else\r",
+							"    {\r",
+							"        console.log(\"Unexpected city\");\r",
+							"    }\r",
+							"    \r",
+							"    pm.expect(contains).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains object: 'weather'\", function () {\r",
+							"    var contains = false;\r",
+							"    for (var key in jsonData) {\r",
+							"       if (key == \"weather\") {\r",
+							"           contains = true;\r",
+							"       }\r",
+							"    }\r",
+							"    pm.expect(contains).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Contains string: 'rain' \", function () {\r",
+							"    var contains = false;\r",
+							"    var expected = \"main\";\r",
+							"    pm.expect(pm.response.text()).to.include(expected);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"DOES NOT Contain string: 'snow' \", function () {\r",
+							"    var contains = false;\r",
+							"    var expected = \"snow\";\r",
+							"    pm.expect(pm.response.text()).to.not.include(expected);\r",
+							"});\r",
+							"            \r",
+							"            "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://api.openweathermap.org/data/2.5/weather?id={{CITYID}}&appid={{APPID }}",
+					"protocol": "http",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{CITYID}}"
+						},
+						{
+							"key": "appid",
+							"value": "{{APPID }}"
+						}
+					]
+				},
+				"description": "teste"
+			},
+			"response": []
+		}
+	]
+}
