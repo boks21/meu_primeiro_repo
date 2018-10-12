@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "f79897c0-e72c-40d0-b84d-05c41a3731e3",
+		"name": "Swagger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "include_exclude",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f76f4b2a-728b-4c3d-b50d-cec3d56c0473",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"//Saving the response \"name\" value into an environment variable",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(300);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eopDate\": {\r\n\t\"lowerOrEqual\": \"2024-09-27\"\r\n  },\r\n  \"sopDate\": {\r\n\t\"greaterOrEqual\": \"2001-09-27\"\r\n  },\r\n  \"modelTypeQualifiers\": [\r\n    \"JC31\"\r\n  ],\r\n  \"featureCodes\": [\r\n    \"S5DNA\"\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://oka-business-pskd-sprint-test.mp-dev-cnap.bmwgroup.net/query-rule/rule-uses-ag/incl-excl/v1:search",
+					"protocol": "https",
+					"host": [
+						"oka-business-pskd-sprint-test",
+						"mp-dev-cnap",
+						"bmwgroup",
+						"net"
+					],
+					"path": [
+						"query-rule",
+						"rule-uses-ag",
+						"incl-excl",
+						"v1:search"
+					]
+				},
+				"description": "inc_exc"
+			},
+			"response": []
+		}
+	]
+}
