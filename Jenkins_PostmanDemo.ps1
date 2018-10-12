@@ -1,7 +1,7 @@
 #Windows Batch Command in Jenkins
 #powershell.exe -executionpolicy bypass -command "& '%WORKSPACE%\Jenkins_PostmanDemo.ps1'"
 
-echo "You are in the powershell script now..."
+echo "WEATHER You are in the powershell script now..."
 
 $SourceFilePath = $env:WORKSPACE
 $FilenamePostfix = "*.postman_collection.json"
