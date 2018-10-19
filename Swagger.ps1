@@ -19,7 +19,7 @@ $JsonFiles = Get-ChildItem -Path $SourceFilePath -name -Filter $FilenamePostfix 
 foreach ($File in $JsonFiles) {
 	$collectionfilepath = "$SourceFilePath\$File"
 	$environmentfilepath = "$SourceFilePath\$EnvironmentFile"
-    newman run $collectionfilepath -e $environmentfilepath --disable-unicode 
+    newman run $collectionfilepath -e $environmentfilepath --disable-unicode --insecure
 }
 
 exit $LASTEXITCODE
