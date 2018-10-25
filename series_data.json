@@ -1,0 +1,20 @@
+[
+{
+	"brandqual" : "MRK~BM",
+	"devmodelrangestatuscode" : "50",
+	"producttypequal" : "PRO~P",
+	"desc_test_status_code" : "Compare expected and received status code",
+	"expected_status_code" : 200,
+	"desc_test_expected_key_devModelRangeQual" : "Test if response have devModelRangeQual key",
+	"expected_key_devModelRangeQual" : "devModelRangeQual"
+},
+{
+	"brandqual" : "BMW",
+	"devmodelrangestatuscode" : "50",
+	"producttypequal" : "CAR",
+	"desc_test_status_code" : "Compare expected and received status code",
+	"expected_status_code" : 200,
+	"desc_test_expected_key_devModelRangeQual" : "Test if response have devModelRangeQual key",
+	"expected_key_devModelRangeQual" : "devModelRangeQual"
+}
+]

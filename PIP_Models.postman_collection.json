@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "710af108-b8fc-4efb-87f7-4c065d753e16",
+		"name": "PIP_Models",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Models",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "488abefd-f87d-4ef8-bdf5-19e0397a8c1b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[data.desc_test_status_code] = responseCode.code === data.expected_status_code;",
+							"",
+							"if(responseCode.code === 200){",
+							"    ",
+							"   /* tests[data.desc_test_received_response_size] = jsonData.result.length >= data.min_result_elements;*/",
+							"    ",
+							"    var resultsLength = jsonData.result.length;",
+							"    ",
+							"    pm.test(data.desc_test_expected_key_salesDescr, function () {",
+							"        for(var i =0; i< resultsLength; ++i ){",
+							"                var contains = false;",
+							"                for (var key in jsonData.result[i]) {",
+							"                     if (key === data.expected_key_salesDescr) {",
+							"                        contains = true;",
+							"                    }",
+							"                }",
+							"                pm.expect(contains).to.be.true;",
+							"        }",
+							"    });",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"devModelRangeCodes\": [\r\n    \"{{devmodel_code}}\"\r\n  ]\r\n}\r\n\r\n\r\n\r\n"
+				},
+				"url": {
+					"raw": "https://oka-business-pskd-sprint-test.mp-dev-cnap.bmwgroup.net/query-vehicle/model-type-variants/v1:search",
+					"protocol": "https",
+					"host": [
+						"oka-business-pskd-sprint-test",
+						"mp-dev-cnap",
+						"bmwgroup",
+						"net"
+					],
+					"path": [
+						"query-vehicle",
+						"model-type-variants",
+						"v1:search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

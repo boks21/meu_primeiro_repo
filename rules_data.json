@@ -1,0 +1,32 @@
+[
+{
+	"eopdate" : "2019-09-27",
+	"sopdate" : "2019-09-27",
+	"modeltype" : "JC31",
+	"featurecodes" : "S5DNA",
+	"desc_test_status_code" : "Compare expected and received status code",
+	"expected_status_code" : 200,
+	"desc_test_expected_key_modelTypeCode" : "Test: modelTypeCode key",
+	"expected_key_modelTypeCode" : "modelTypeCode",
+	"desc_test_expected_key_active_feature_list" : "Test: activeFeatureList key",
+	"expected_key_active_feature_list" : "activeFeatureList",
+	"desc_test_expected_key_condition_feature_list" : "Test: conditionFeatureList key",
+	"expected_key_condition_feature_list" : "conditionFeatureList",
+	"desc_test_expected_key_featureCode" : "Test: featureCode key",
+	"expected_key_featureCode" : "featureCode"
+},
+{
+	"eopdate" : "",
+	"sopdate" : "",
+	"modeltype" : "",
+	"featurecodes" : "",
+	"desc_test_status_code" : "Compare expected and received status code",
+	"expected_status_code" : 400,
+	"desc_test_expected_key_modelTypeCode" : "Test: modelTypeCode key",
+	"expected_key_modelTypeCode" : "modelTypeCode",
+	"desc_test_expected_key_condition_feature_list" : "Test: conditionFeatureList key",
+	"expected_key_condition_feature_list" : "conditionFeatureList",
+	"desc_test_expected_key_featureCode" : "Test: featureCode key",
+	"expected_key_featureCode" : "featureCode"
+}
+]

@@ -1,0 +1,16 @@
+[
+{
+	"attribute_code" : "PRO",
+	"desc_test_status_code" : "Product: Compare expected and received status code",
+	"expected_status_code" : 200,
+	"desc_test_expected_key_code" : "Product: Test if response have code key",
+	"expected_key_code" : "code"
+},
+{
+	"attribute_code" : "MRK",
+	"desc_test_status_code" : "Brand: Compare expected and received status code",
+	"expected_status_code" : 200,
+	"desc_test_expected_key_code" : "Brand: Test if response have code key",
+	"expected_key_code" : "code"
+}
+]
